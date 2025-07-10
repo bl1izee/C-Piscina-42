@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablomar <pablomar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/06 10:33:38 by pablomar          #+#    #+#             */
-/*   Updated: 2025/07/10 15:06:20 by pablomar         ###   ########.fr       */
+/*   Created: 2025/07/10 15:21:56 by pablomar          #+#    #+#             */
+/*   Updated: 2025/07/10 15:25:39 by pablomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putnbr(int num)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	char	digit;
+	int	pos1;
+	int	pos2;
+	int	tmp;
 
-	if (num == -2147483648)
-		write(1, "-2147483648", 11);
-	else
+	pos1 = 0;
+	while (pos1 < size)
 	{
-		if (num < 0)
+		pos2 = pos1 + 1;
+		while (pos2 < size)
 		{
-			write(1, "-", 1);
-			num *= -1;
+			if (tab[pos1] > tab[pos2])
+			{
+				tmp = tab[pos1];
+				tab[pos1] = tab[pos2];
+				tab[pos2] = tmp;
+			}
+			pos2++;
 		}
-		if (num >= 10)
-		{
-			ft_putnbr(num / 10);
-			digit = num % 10 + '0';
-			write(1, &digit, 1);
-		}
-		else
-		{
-			digit = num + '0';
-			write(1, &digit, 1);
-		}
+		pos1++;
 	}
 }
