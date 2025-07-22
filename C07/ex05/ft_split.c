@@ -6,12 +6,11 @@
 /*   By: pablomar <pablomar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:26:30 by pablomar          #+#    #+#             */
-/*   Updated: 2025/07/22 16:14:55 by pablomar         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:52:39 by pablomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	calc_size(char *str, char *charset)
 {
@@ -55,7 +54,7 @@ void	alloc_list(char ***list_words, int size_list, char *str, char *charset)
 		pos = 0;
 		while (*str != charset[pos] && charset[pos])
 			pos++;
-		if (charset[pos] == *str)
+		if (charset[pos] == *(str++))
 		{
 			if (len_word != 0)
 			{
@@ -66,7 +65,6 @@ void	alloc_list(char ***list_words, int size_list, char *str, char *charset)
 		}
 		else
 			len_word++;
-		str++;
 	}
 	(*list_words)[tam_list] = (char *)malloc(sizeof(char) * (len_word + 1));
 }
@@ -97,12 +95,9 @@ char	**save_words(char **list_words, char *str, char *charset)
 		str++;
 	}
 	if (len_word == 0)
-		list_words[tam_list] = NULL;
-	else
-	{
-		list_words[tam_list][len_word] = '\0';
-		list_words[tam_list + 1] = NULL;
-	}
+		return (list_words[tam_list] = NULL, list_words);
+	list_words[tam_list][len_word] = '\0';
+	list_words[tam_list + 1] = NULL;
 	return (list_words);
 }
 
@@ -133,12 +128,9 @@ char	**ft_split(char *str, char *charset)
 		list_words = (char **)malloc(sizeof(char *) * 2);
 		list_words[0] = (char *)malloc(sizeof(char) * ft_strlen(str) + 1);
 		list_words[1] = NULL;
-		pos = 0;
-		while (str[pos])
-		{
+		pos = -1;
+		while (str[++pos])
 			list_words[0][pos] = str[pos];
-			pos++;
-		}
 		list_words[0][pos] = '\0';
 		return (list_words);
 	}
