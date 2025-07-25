@@ -6,7 +6,7 @@
 /*   By: pablomar <pablomar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 10:56:58 by pablomar          #+#    #+#             */
-/*   Updated: 2025/07/25 16:16:05 by pablomar         ###   ########.fr       */
+/*   Updated: 2025/07/25 16:21:14 by pablomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,17 @@ int	calc_size_fd(char	*fd_name)
 int	ft_tail(int argc, char **argv)
 {
 	int		exit;
+	char	character;
 
 	exit = 0;
 	if (argc > 1 && exit == 0)
 	{
 		exit = print_files(argc, argv, 0, 0);
+	}
+	else
+	{
+		while (read(0, &character, 1) > 0)
+			ft_putc(character);
 	}
 	return (exit);
 }
