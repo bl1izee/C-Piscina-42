@@ -6,14 +6,13 @@
 /*   By: pablomar <pablomar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:05:36 by pablomar          #+#    #+#             */
-/*   Updated: 2025/07/25 16:16:18 by pablomar         ###   ########.fr       */
+/*   Updated: 2025/07/25 16:19:13 by pablomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_H
 # define LIB_H
 
-# include <stdio.h>
 # include <string.h>
 # include <errno.h>
 # include <stdlib.h>
