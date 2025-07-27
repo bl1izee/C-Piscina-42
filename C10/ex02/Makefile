@@ -6,14 +6,14 @@
 #    By: pablomar <pablomar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/23 13:29:12 by pablomar          #+#    #+#              #
-#    Updated: 2025/07/25 15:52:45 by pablomar         ###   ########.fr        #
+#    Updated: 2025/07/27 17:10:06 by pablomar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME_PROGRAM = ft_cat
+NAME_PROGRAM = ft_tail
 NAME_LIB = libraries/libft.a
 SRCS = srcs/ft_tail.c srcs/utils.c srcs/manage_files.c
 MAIN_SRCS = srcs/main.c
